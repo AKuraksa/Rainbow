@@ -1,0 +1,2 @@
+# Rainbow
+Šifrovací algoritmus
