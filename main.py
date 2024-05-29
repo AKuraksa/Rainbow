@@ -16,10 +16,10 @@ def reduce_function(hash_value, position):
     return ''.join(chars)
 
 # Generování Rainbow tabulek
-def generate_rainbow_table(chain_length, table_size):
+def generate_rainbow_table(words, chain_length):
     rainbow_table = {}
-    for i in range(table_size):
-        start_value = ''.join(chr((i % 26) + 97) for _ in range(1))  # Startovní hodnoty (např. 'aaaa', 'aaab', ...)
+    for word in words:
+        start_value = word
         current_value = start_value
         
         for j in range(chain_length):
@@ -30,8 +30,12 @@ def generate_rainbow_table(chain_length, table_size):
     
     return rainbow_table
 
+# Příkladová slova
+words = ["test", "hello", "world", "rainbow", "admin", "password"]
+
 # Generování tabulky
-rainbow_table = generate_rainbow_table(chain_length=1000, table_size=1000)
+rainbow_table = generate_rainbow_table(words, chain_length=5000)
+print("Vygenerovaná Rainbow Tabulka:")
 print(rainbow_table)
 
 
@@ -55,7 +59,7 @@ def search_rainbow_table(hash_to_crack, chain_length, rainbow_table):
     return None
 
 # Testování vyhledávání
-hash_to_crack = hash_function('a')
+hash_to_crack = hash_function('admin')
 print(f'Hledaný hash: {hash_to_crack}')
-cracked_value = search_rainbow_table(hash_to_crack, chain_length=1000, rainbow_table=rainbow_table)
+cracked_value = search_rainbow_table(hash_to_crack, chain_length=7000, rainbow_table=rainbow_table)
 print(f'Nalezená hodnota: {cracked_value}')
