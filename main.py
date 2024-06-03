@@ -34,7 +34,7 @@ def generate_rainbow_table(words, chain_length):
 words = ["test", "hello", "world", "rainbow", "admin", "password"]
 
 # Generování tabulky
-rainbow_table = generate_rainbow_table(words, chain_length=5000)
+rainbow_table = generate_rainbow_table(words, chain_length=2000)
 print("Vygenerovaná Rainbow Tabulka:")
 print(rainbow_table)
 
@@ -61,5 +61,5 @@ def search_rainbow_table(hash_to_crack, chain_length, rainbow_table):
 # Testování vyhledávání
 hash_to_crack = hash_function('admin')
 print(f'Hledaný hash: {hash_to_crack}')
-cracked_value = search_rainbow_table(hash_to_crack, chain_length=7000, rainbow_table=rainbow_table)
+cracked_value = search_rainbow_table(hash_to_crack, chain_length=2000, rainbow_table=rainbow_table)
 print(f'Nalezená hodnota: {cracked_value}')
